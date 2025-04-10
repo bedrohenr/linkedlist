@@ -3,13 +3,15 @@ package LinkedList;
 public class LinkedList<T> {
     private Node<T> first, last;
     private int size;
-    private final boolean sorted;
+    private boolean sorted;
 
-    public LinkedList(){
+    public LinkedList(boolean sort){
         this.sorted = false;
         this.first = this.last = null;
         this.size = 0;
+        this.sorted = sort;
     }
+
 
     public void add(T elem){
         Node<T> newE = new Node<>(elem);
@@ -23,6 +25,10 @@ public class LinkedList<T> {
             this.last = newE;
             this.size++;
         }
+    }
+
+    public void addOrd(T elem){
+        // TODO: Checar na lista com comparable
     }
 
     public boolean search(T elem){
@@ -79,6 +85,10 @@ public class LinkedList<T> {
 
     public int getSize(){
         return this.size;
+    }
+
+    public boolean compareable() {
+        return True;
     }
 
 }
