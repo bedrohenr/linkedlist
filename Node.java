@@ -1,5 +1,3 @@
-package LinkedList;
-
 public class Node<T> {
     public T value;
     private Node next;

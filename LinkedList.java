@@ -1,5 +1,3 @@
-package LinkedList;
-
 public class LinkedList<T> {
     private Node<T> first, last;
     private int size;
