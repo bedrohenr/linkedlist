@@ -71,12 +71,12 @@ public class LinkedList<T> {
             s += aux.getValue();
             
             if(aux != this.last)
-                s += ", ";
+                s += ",";
             
             aux = aux.getNext();
         }
 
-        s += "]";
+        s += "\n]";
 
         return s;
     }
