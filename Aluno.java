@@ -18,4 +18,8 @@ public class Aluno implements Comparator<Aluno> {
 
         return 0;
     }
+
+    public String toString(){
+        return "\nAluno:\nNome: " + this.nome + "\nMatricula: " + this.matricula + "\nNota: " + this.nota;
+    }
 }
