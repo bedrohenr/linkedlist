@@ -10,10 +10,10 @@ public class Aluno implements Comparator<Aluno> {
     }
 
     public int compare(Aluno aluno){
-        if (this.matricula > aluno.matricula)
+        if (this.matricula < aluno.matricula)
             return 1;
 
-        if (this.matricula < aluno.matricula)
+        if (this.matricula > aluno.matricula)
             return -1;
 
         return 0;
