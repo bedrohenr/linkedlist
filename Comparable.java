@@ -1,3 +1,3 @@
-public interface Comparator<T>{
+public interface Comparable<T> {
    public int compare(T param); 
 }
