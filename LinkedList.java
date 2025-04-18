@@ -35,13 +35,13 @@ public class LinkedList<T> {
         // TODO: Checar na lista com comparable
     }
 
-    public boolean search(T elem){
+    public Node<T> search(T elem){
         Node<T> aux = this.first;
         while(aux != null){
             if(aux.getValue().equals(elem))
-                return true;
+                return aux;
         }
-        return false;
+        return null;
     }
 
     public boolean delete(T elem){
