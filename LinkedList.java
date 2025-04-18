@@ -91,8 +91,4 @@ public class LinkedList<T> {
         return this.size;
     }
 
-    public boolean compareable() {
-        return True;
-    }
-
 }
