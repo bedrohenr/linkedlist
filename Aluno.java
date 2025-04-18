@@ -1,4 +1,4 @@
-public class Aluno implements Comparator<Aluno> {
+public class Aluno implements Comparable<Aluno> {
     int matricula;
     String nome;
     float nota;
