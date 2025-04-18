@@ -10,8 +10,14 @@ public class LinkedList<T> {
         this.sorted = sort;
     }
 
+    public void add(T elem) {
+        if(sorted)
+            this.addSorted((Comparable<T>) elem);
+        else
+            this.addLast(elem);
+    }
 
-    public void add(T elem){
+    public void addLast(T elem){
         Node<T> newE = new Node<>(elem);
 
         if(this.first == null){
