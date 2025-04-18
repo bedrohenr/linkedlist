@@ -31,8 +31,57 @@ public class LinkedList<T> {
         }
     }
 
-    public void addOrd(T elem){
-        // TODO: Checar na lista com comparable
+    public void addSorted(Comparable<T> elem){
+        Node<Comparable<T>> newE = new Node<>(elem);
+        this.size++;
+
+        if(this.first == null) {
+            this.first = (Node<T>) newE;
+            this.last = (Node<T>) newE;
+        } else {
+            Node<T> aux = this.first;
+            Node<T> ant = null;
+
+            // Somente um item na lista
+            if(this.first.getNext() == null){
+                if(newE.getValue().compare(aux.getValue()) == 1){
+                    newE.setNext(aux);
+                    this.first = (Node<T>) newE;
+                    this.last = aux;
+                } else {
+                    this.first.setNext(newE);
+                    this.last = (Node<T>) newE;
+                }
+            } else {
+                while(aux != null){
+                    if(newE.getValue().compare(aux.getValue()) >= 0){
+                        // if this.first
+                        if (aux == this.first){
+                            this.first = (Node<T>) newE;
+                            this.first.setNext(aux);
+                            return;
+                        }
+                        if (aux == this.last){
+                            this.last = (Node<T>) newE;
+                            aux.setNext(newE);
+                            return;
+                        }
+                        ant.setNext(newE);
+                        newE.setNext(aux);
+                        return;
+                        
+                    }
+                    if(aux == this.last){
+                        break;
+                    }
+                    ant = aux;
+                    aux = aux.getNext();
+                }
+                aux.setNext(newE);
+                this.last = (Node<T>) newE;
+                return;
+            }
+        }
     }
 
     public Node<T> search(T elem){
