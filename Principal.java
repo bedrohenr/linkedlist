@@ -1,4 +1,26 @@
+import java.util.Scanner;
+
 public class Principal {
+    private static int menu(LinkedList<Aluno> list, LinkedList<Aluno> sortedList){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("1 - Pesquisar na lista ordenada");
+        System.out.println("2 - Pesquisar na lista não ordenada");
+        System.out.println("3 - Sair");
+        System.out.print("Sua escolha: ");
+
+        int escolha = scan.nextInt();;
+        while(escolha < 0 && escolha > 3)
+            escolha = scan.nextInt();
+
+        
+        if(escolha != 3){
+            System.out.print("Insira a matricula a ser buscada: ");
+            int matricula = scan.nextInt();
+            makeShowSearch(escolha, matricula, list, sortedList);
+        }
+
+        return escolha;
+    }
     public static void main(String[] args) {
         System.out.println("-- Started");
 
