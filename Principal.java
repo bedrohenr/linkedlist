@@ -61,7 +61,7 @@ public class Principal {
         String filePath = "alunosOrdenados.txt";
         File f = new File(filePath);
         if(!f.exists() && !f.isDirectory()) { 
-            GeradorArquivosBalanceados.gerarArquivo();
+            GeradorArquivosOrdenados.gerarArquivo();
         }
 
         LinkedList<Aluno> notSortedLL = new LinkedList<>(NOT_SORTED); 
