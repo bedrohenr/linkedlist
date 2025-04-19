@@ -69,10 +69,9 @@ public class Principal {
 
         LeitorArquivos.fromFileToList(filePath, sortedLL, notSortedLL);
 
-        System.out.println(sortedLL.toString());
-        System.out.println(notSortedLL.toString());
+        System.out.println("Lista ordenada:" +sortedLL.toString());
+        System.out.println("Lista nao ordenada:" +notSortedLL.toString());
 
-        System.out.println(notSortedLL.toString());
         int escolha;
         do {
             escolha = menu(notSortedLL, sortedLL);
