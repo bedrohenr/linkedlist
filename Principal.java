@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.Scanner;
 
 public class Principal {
@@ -9,9 +10,10 @@ public class Principal {
         System.out.print("Sua escolha: ");
 
         int escolha = scan.nextInt();;
-        while(escolha < 0 && escolha > 3)
+        while(escolha < 1 || escolha > 3){
+            System.out.print("Escolha inválida. Tente novamente: ");
             escolha = scan.nextInt();
-
+        }
         
         if(escolha != 3){
             System.out.print("Insira a matricula a ser buscada: ");
@@ -56,51 +58,18 @@ public class Principal {
         boolean SORTED = true;
         System.out.println("-- Início do programa");
 
-        // String filePath = "alunosOrdenados.txt";
-        // File f = new File(filePath);
-        // if(!f.exists() && !f.isDirectory()) { 
-        //     GeradorArquivosOrdenados.gerarArquivo();
-        // }
-
-        Aluno pedro = new Aluno(1, "pedro", 10);
-        Aluno kaio = new Aluno(2, "kaio", 9);
-        Aluno lucas = new Aluno(4, "lucas", 9);
-        Aluno alicia = new Aluno(3, "alicia", 9);
-        Aluno marcos = new Aluno(2, "marcos", 9);
-        Aluno livia = new Aluno(4, "livia", 9);
-        Aluno andre = new Aluno(1, "andre", 9);
-        Aluno luiz = new Aluno(5, "luiz", 9);
-        Aluno jair = new Aluno(3, "jair", 9);
-        Aluno maome = new Aluno(3, "maome", 9);
-        Aluno vivian = new Aluno(9, "vivian", 9);
+        String filePath = "alunosOrdenados.txt";
+        File f = new File(filePath);
+        if(!f.exists() && !f.isDirectory()) { 
+            GeradorArquivosOrdenados.gerarArquivo();
+        }
 
         LinkedList<Aluno> notSortedLL = new LinkedList<>(NOT_SORTED); 
         LinkedList<Aluno> sortedLL = new LinkedList<>(SORTED); 
 
-        notSortedLL.add(lucas);
-        notSortedLL.add(alicia);
-        notSortedLL.add(pedro);
-        notSortedLL.add(kaio);
-        notSortedLL.add(andre);
-        notSortedLL.add(livia);
-        notSortedLL.add(marcos);
-        notSortedLL.add(jair);
-        notSortedLL.add(maome);
-        notSortedLL.add(luiz);
-        notSortedLL.add(vivian);
+        LeitorArquivos.fromFileToList(filePath, sortedLL, notSortedLL);
 
-        sortedLL.add(lucas);
-        sortedLL.add(alicia);
-        sortedLL.add(pedro);
-        sortedLL.add(kaio);
-        sortedLL.add(andre);
-        sortedLL.add(livia);
-        sortedLL.add(marcos);
-        sortedLL.add(jair);
-        sortedLL.add(maome);
-        sortedLL.add(luiz);
-        sortedLL.add(vivian);
-
+        System.out.println(notSortedLL.toString());
         int escolha;
         do {
             escolha = menu(notSortedLL, sortedLL);
