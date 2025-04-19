@@ -1,5 +1,5 @@
 public class LinkedList<T> {
-    private Node<T> first, last;
+    private Node<Comparable<T>> first, last;
     private int size;
     private boolean sorted;
 
@@ -10,15 +10,15 @@ public class LinkedList<T> {
         this.sorted = sort;
     }
 
-    public void add(T elem) {
+    public void add(Comparable<T> elem) {
         if(sorted)
-            this.addSorted((Comparable<T>) elem);
+            this.addSorted(elem);
         else
             this.addLast(elem);
     }
 
-    public void addLast(T elem){
-        Node<T> newE = new Node<>(elem);
+    public void addLast(Comparable<T> elem){
+        Node<Comparable<T>> newE = new Node<>(elem);
 
         if(this.first == null){
             this.first = newE;
@@ -36,33 +36,33 @@ public class LinkedList<T> {
         this.size++;
 
         if(this.first == null) {
-            this.first = (Node<T>) newE;
-            this.last = (Node<T>) newE;
+            this.first = newE;
+            this.last = newE;
         } else {
-            Node<T> aux = this.first;
-            Node<T> ant = null;
+            Node<Comparable<T>> aux = this.first;
+            Node<Comparable<T>> ant = null;
 
             // Somente um item na lista
             if(this.first.getNext() == null){
                 if(newE.getValue().compare(aux.getValue()) == 1){
                     newE.setNext(aux);
-                    this.first = (Node<T>) newE;
+                    this.first = newE;
                     this.last = aux;
                 } else {
                     this.first.setNext(newE);
-                    this.last = (Node<T>) newE;
+                    this.last = newE;
                 }
             } else {
                 while(aux != null){
                     if(newE.getValue().compare(aux.getValue()) >= 0){
                         // if this.first
                         if (aux == this.first){
-                            this.first = (Node<T>) newE;
+                            this.first = newE;
                             this.first.setNext(aux);
                             return;
                         }
                         if (aux == this.last){
-                            this.last = (Node<T>) newE;
+                            this.last = newE;
                             aux.setNext(newE);
                             return;
                         }
@@ -78,14 +78,14 @@ public class LinkedList<T> {
                     aux = aux.getNext();
                 }
                 aux.setNext(newE);
-                this.last = (Node<T>) newE;
+                this.last = newE;
                 return;
             }
         }
     }
 
-    public Node<T> search(T elem){
-        Node<T> aux = this.first;
+    public Node<Comparable<T>> search(T elem){
+        Node<Comparable<T>> aux = this.first;
         while(aux != null){
             if(aux.getValue().equals(elem))
                 return aux;
@@ -94,8 +94,8 @@ public class LinkedList<T> {
     }
 
     public boolean delete(T elem){
-        Node<T> aux = this.first;
-        Node<T> before = null;
+        Node aux = this.first;
+        Node before = null;
 
         while ( aux != null ){
             if(aux.getValue().equals(elem)){
@@ -119,7 +119,7 @@ public class LinkedList<T> {
     }
 
     public String toString(){
-        Node<T> aux = this.first;
+        Node aux = this.first;
         String s = "[";
 
         while( aux != null ){
