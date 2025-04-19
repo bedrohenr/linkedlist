@@ -23,4 +23,8 @@ public class Aluno implements Comparable<Aluno> {
     public String toString(){
         return "\n\t{\n\t\tNome: " + this.nome + "\n\t\tMatricula: " + this.matricula + "\n\t\tNota: " + this.nota + "\n\t}";
     }
+
+    public String print(){
+        return "\nNome do Aluno: "+ this.nome +"\nMatricula: " + this.matricula + "\nNota: " + this.nota;
+    }
 }
