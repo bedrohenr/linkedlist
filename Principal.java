@@ -52,8 +52,15 @@ public class Principal {
     }
 
     public static void main(String[] args) {
-        System.out.println("-- Started");
+        boolean NOT_SORTED = false;
+        boolean SORTED = true;
+        System.out.println("-- Início do programa");
 
+        // String filePath = "alunosOrdenados.txt";
+        // File f = new File(filePath);
+        // if(!f.exists() && !f.isDirectory()) { 
+        //     GeradorArquivosOrdenados.gerarArquivo();
+        // }
 
         Aluno pedro = new Aluno(1, "pedro", 10);
         Aluno kaio = new Aluno(2, "kaio", 9);
@@ -65,27 +72,42 @@ public class Principal {
         Aluno luiz = new Aluno(5, "luiz", 9);
         Aluno jair = new Aluno(3, "jair", 9);
         Aluno maome = new Aluno(3, "maome", 9);
-        Aluno denis = new Aluno(9, "denis", 9);
+        Aluno vivian = new Aluno(9, "vivian", 9);
 
-        LinkedList<Aluno> ll = new LinkedList<>(true); 
+        LinkedList<Aluno> notSortedLL = new LinkedList<>(NOT_SORTED); 
+        LinkedList<Aluno> sortedLL = new LinkedList<>(SORTED); 
 
-        ll.add(lucas);
-        ll.add(alicia);
-        ll.add(pedro);
-        ll.add(kaio);
-        ll.add(andre);
-        ll.add(livia);
-        ll.add(marcos);
-        ll.add(jair);
-        ll.add(maome);
-        ll.add(luiz);
-        ll.add(denis);
+        notSortedLL.add(lucas);
+        notSortedLL.add(alicia);
+        notSortedLL.add(pedro);
+        notSortedLL.add(kaio);
+        notSortedLL.add(andre);
+        notSortedLL.add(livia);
+        notSortedLL.add(marcos);
+        notSortedLL.add(jair);
+        notSortedLL.add(maome);
+        notSortedLL.add(luiz);
+        notSortedLL.add(vivian);
 
-        System.out.println(ll.toString());
+        sortedLL.add(lucas);
+        sortedLL.add(alicia);
+        sortedLL.add(pedro);
+        sortedLL.add(kaio);
+        sortedLL.add(andre);
+        sortedLL.add(livia);
+        sortedLL.add(marcos);
+        sortedLL.add(jair);
+        sortedLL.add(maome);
+        sortedLL.add(luiz);
+        sortedLL.add(vivian);
 
-        // System.out.println("Teste" + pedro.compare(kaio));
-        System.out.println("Tamanho da lista: " + ll.getSize());
-        System.out.println("Ended --");
+        int escolha;
+        do {
+            escolha = menu(notSortedLL, sortedLL);
+        }
+        while(escolha != 3);
+
+        System.out.println("Fim da execução do programa --");
     }
     
 }
