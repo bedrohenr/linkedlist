@@ -61,13 +61,16 @@ public class Principal {
         String filePath = "alunosOrdenados.txt";
         File f = new File(filePath);
         if(!f.exists() && !f.isDirectory()) { 
-            GeradorArquivosOrdenados.gerarArquivo();
+            GeradorArquivosBalanceados.gerarArquivo();
         }
 
         LinkedList<Aluno> notSortedLL = new LinkedList<>(NOT_SORTED); 
         LinkedList<Aluno> sortedLL = new LinkedList<>(SORTED); 
 
         LeitorArquivos.fromFileToList(filePath, sortedLL, notSortedLL);
+
+        System.out.println(sortedLL.toString());
+        System.out.println(notSortedLL.toString());
 
         System.out.println(notSortedLL.toString());
         int escolha;
