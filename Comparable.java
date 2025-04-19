@@ -1,3 +1,3 @@
 public interface Comparable<T> {
-   public int compare(T param); 
+   public int compare(Comparable<T> param); 
 }
