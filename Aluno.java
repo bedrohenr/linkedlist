@@ -9,11 +9,12 @@ public class Aluno implements Comparable<Aluno> {
         this.nota = nota;
     }
 
-    public int compare(Aluno aluno){
-        if (this.matricula < aluno.matricula)
+    public int compare(Comparable<Aluno> aluno){
+        Aluno aluno2 = (Aluno) aluno;
+        if (this.matricula < aluno2.matricula)
             return 1;
 
-        if (this.matricula > aluno.matricula)
+        if (this.matricula > aluno2.matricula)
             return -1;
 
         return 0;
