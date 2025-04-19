@@ -21,6 +21,36 @@ public class Principal {
 
         return escolha;
     }
+
+    private static void makeShowSearch(int escolha, int matricula, LinkedList<Aluno> list, LinkedList<Aluno> sortedList){
+        Aluno rAluno = null;
+
+        long start, elapsed;
+        String output = "";
+        switch(escolha){
+            case 1:
+                start = System.currentTimeMillis();
+                rAluno = sortedList.search(matricula);
+                elapsed = System.currentTimeMillis() - start; 
+                output = "A busca na lista ordenada durou: " + elapsed + " milisegundos";
+                break;
+            case 2:
+                start = System.currentTimeMillis();
+                rAluno = list.search(matricula);
+                elapsed = System.currentTimeMillis() - start; 
+                output = "A busca na lista não ordenada durou: " + elapsed + " milisegundos";
+                break;
+        }
+
+        if(rAluno != null){
+            System.out.println("Aluno com matricula \""+ matricula +"\" encontrado");
+            System.out.println(rAluno.print());
+            System.out.println(output);
+        } else {
+            System.out.println("Erro. Aluno com matricula \""+ matricula +"\" não encontrado");
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("-- Started");
 
