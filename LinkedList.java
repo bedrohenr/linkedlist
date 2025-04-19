@@ -93,6 +93,20 @@ public class LinkedList<T> {
         return null;
     }
 
+    public Aluno search(int matricula){
+        Node aux = this.first;
+        Aluno aluno;
+        while(aux != null){
+            aluno = (Aluno) aux.getValue();
+            // System.out.println("if"+ aluno.matricula + " == " + matricula);
+            if(aluno.matricula == matricula)
+                return aluno;
+
+            aux = aux.getNext();
+        }
+        return null;
+    }
+
     public boolean delete(T elem){
         Node aux = this.first;
         Node before = null;
