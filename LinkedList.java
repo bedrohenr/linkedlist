@@ -38,50 +38,62 @@ public class LinkedList<T> {
         if(this.first == null) {
             this.first = newE;
             this.last = newE;
-        } else {
-            Node<Comparable<T>> aux = this.first;
-            Node<Comparable<T>> ant = null;
-
-            // Somente um item na lista
-            if(this.first.getNext() == null){
-                if(newE.getValue().compare(aux.getValue()) == 1){
-                    newE.setNext(aux);
-                    this.first = newE;
-                    this.last = aux;
-                } else {
-                    this.first.setNext(newE);
-                    this.last = newE;
-                }
-            } else {
-                while(aux != null){
-                    if(newE.getValue().compare(aux.getValue()) >= 0){
-                        // if this.first
-                        if (aux == this.first){
-                            this.first = newE;
-                            this.first.setNext(aux);
-                            return;
-                        }
-                        if (aux == this.last){
-                            this.last = newE;
-                            aux.setNext(newE);
-                            return;
-                        }
-                        ant.setNext(newE);
-                        newE.setNext(aux);
-                        return;
-                        
-                    }
-                    if(aux == this.last){
-                        break;
-                    }
-                    ant = aux;
-                    aux = aux.getNext();
-                }
-                aux.setNext(newE);
-                this.last = newE;
-                return;
-            }
+            return;
         }
+
+        Node<Comparable<T>> aux = this.first;
+        Node<Comparable<T>> ant = null;
+
+        // Somente um item na lista
+        // if(this.first.getNext() == null){
+        //     if(newE.getValue().compare(aux.getValue()) == 1){
+        //         newE.setNext(aux);
+        //         this.first = newE;
+        //         this.last = aux;
+        //     } else {
+        //         this.first.setNext(newE);
+        //         this.last = newE;
+        //     }
+        //     return;
+        // }
+
+        if (newE.getValue().compare(this.first.getValue()) >= 0){
+            newE.setNext(this.first);
+            this.first = newE;
+            return;
+        }
+
+        // if (newE.getValue().compare(this.last.getValue()) < 0){
+        //     newE.setNext(this.first);
+        //     this.last.setNext(newE);
+        //     return;
+        // }
+
+        while(aux != null){
+            System.out.println("what");
+            // >= 0 == Deve ser inserido antes do aux
+            if(newE.getValue().compare(aux.getValue()) >= 0){
+
+                // if (aux == this.last){
+                //     this.last = newE;
+                //     aux.setNext(newE);
+                //     return;
+                // }
+
+                ant.setNext(newE);
+                newE.setNext(aux);
+                return;
+                
+            }
+            ant = aux;
+            aux = aux.getNext();
+        }
+        // ant.setNext(newE);
+        // if (ant == this.last) {
+        //     this.last = newE;
+        // }
+        // return;
+        
     }
 
     public Node<Comparable<T>> search(T elem){
@@ -96,6 +108,7 @@ public class LinkedList<T> {
     public Aluno search(int matricula){
         Node aux = this.first;
         Aluno aluno;
+        System.out.println("Buscando...");
         while(aux != null){
             aluno = (Aluno) aux.getValue();
             // System.out.println("if"+ aluno.matricula + " == " + matricula);
