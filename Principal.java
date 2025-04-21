@@ -66,7 +66,7 @@ public class Principal {
         LinkedList<Aluno> notSortedLL = new LinkedList<>(!SORTED); 
 
         // Gerando e lendo o arquivo com alunos
-        GeradorArquivosBalanceados.numRegistros = 10000;
+        GeradorArquivosBalanceados.numRegistros = NUM_REGISTROS;
         GeradorArquivosBalanceados.nomeArquivo = ARQUIVO;
         GeradorArquivosBalanceados.gerarArquivo();
 
