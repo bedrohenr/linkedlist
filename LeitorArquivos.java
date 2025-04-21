@@ -27,6 +27,8 @@ public class LeitorArquivos {
 
     public static void fromFileToList(String nomeArquivo, LinkedList<Aluno> sortedLL, LinkedList<Aluno> notSortedLL){
 
+        long start, elapsed;
+        start = System.currentTimeMillis();
         try (BufferedReader reader = new BufferedReader(new FileReader(nomeArquivo))) {
             int numRegistros = Integer.parseInt(reader.readLine().trim());
             System.out.println("Número de registros: " + numRegistros);
@@ -59,5 +61,8 @@ public class LeitorArquivos {
         } catch (NumberFormatException e) {
             System.err.println("Erro ao processar um dos valores numéricos: " + e.getMessage());
         }
+
+        elapsed = System.currentTimeMillis() - start; 
+        System.out.println("Leitura e criação das instâncias durou: "+ elapsed + " ms");
     }
 }
