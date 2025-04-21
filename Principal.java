@@ -1,4 +1,3 @@
-import java.io.File;
 import java.util.Scanner;
 
 public class Principal {
@@ -57,22 +56,19 @@ public class Principal {
 
     public static void main(String[] args) {
         boolean SORTED = true;
+        String filePath = "alunos.txt";
+
         System.out.println("-- Início do programa");
 
-        String filePath = "alunos.txt";
-        File f = new File(filePath);
-        if(!f.exists() && !f.isDirectory()) { 
-            GeradorArquivosBalanceados.gerarArquivo();
-        }
-
+        // Instanciando listas
         LinkedList<Aluno> sortedLL = new LinkedList<>(SORTED); 
         LinkedList<Aluno> notSortedLL = new LinkedList<>(!SORTED); 
 
+        // Gerando e lendo o arquivo com alunos
+        GeradorArquivosBalanceados.gerarArquivo();
         LeitorArquivos.fromFileToList(filePath, sortedLL, notSortedLL);
 
-        // System.out.println("Lista ordenada:" +sortedLL.toString());
-        // System.out.println("Lista nao ordenada:" +notSortedLL.toString());
-
+        // Loop de escolhas
         int escolha;
         do {
             escolha = menu(notSortedLL, sortedLL);
