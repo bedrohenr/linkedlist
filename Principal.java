@@ -67,16 +67,40 @@ public class Principal {
         LinkedList<Aluno> notSortedLL = new LinkedList<>(NOT_SORTED); 
         LinkedList<Aluno> sortedLL = new LinkedList<>(SORTED); 
 
+        Aluno pedro = new Aluno(1, "pedro", 10);
+        Aluno kaio = new Aluno(2, "kaio", 9);
+        Aluno lucas = new Aluno(4, "lucas", 9);
+        Aluno alicia = new Aluno(3, "alicia", 9);
+        Aluno marcos = new Aluno(2, "marcos", 9);
+        Aluno livia = new Aluno(4, "livia", 9);
+        Aluno andre = new Aluno(1, "andre", 9);
+        Aluno luiz = new Aluno(5, "luiz", 9);
+        Aluno jair = new Aluno(3, "jair", 9);
+        Aluno maome = new Aluno(3, "maome", 9);
+        Aluno vivian = new Aluno(9, "vivian", 9);
+
+        sortedLL.add(lucas);
+        sortedLL.add(alicia);
+        sortedLL.add(pedro);
+        sortedLL.add(kaio);
+        sortedLL.add(andre);
+        sortedLL.add(livia);
+        sortedLL.add(marcos);
+        sortedLL.add(jair);
+        sortedLL.add(maome);
+        sortedLL.add(luiz);
+        sortedLL.add(vivian);
+
         LeitorArquivos.fromFileToList(filePath, sortedLL, notSortedLL);
 
         System.out.println("Lista ordenada:" +sortedLL.toString());
-        System.out.println("Lista nao ordenada:" +notSortedLL.toString());
+        // System.out.println("Lista nao ordenada:" +notSortedLL.toString());
 
-        int escolha;
-        do {
-            escolha = menu(notSortedLL, sortedLL);
-        }
-        while(escolha != 3);
+        // int escolha;
+        // do {
+        //     escolha = menu(notSortedLL, sortedLL);
+        // }
+        // while(escolha != 3);
 
         System.out.println("Fim da execução do programa --");
     }
