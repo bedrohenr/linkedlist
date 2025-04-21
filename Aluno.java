@@ -14,10 +14,8 @@ public class Aluno implements Comparable<Aluno> {
         if (this.matricula < aluno2.matricula)
             return 1;
 
-        if (this.matricula > aluno2.matricula)
+        else
             return -1;
-
-        return 0;
     }
 
     public String toString(){
