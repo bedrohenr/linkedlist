@@ -58,10 +58,10 @@ public class Principal {
         boolean SORTED = true;
         System.out.println("-- Início do programa");
 
-        String filePath = "alunosOrdenados.txt";
+        String filePath = "alunos.txt";
         File f = new File(filePath);
         if(!f.exists() && !f.isDirectory()) { 
-            GeradorArquivosOrdenados.gerarArquivo();
+            GeradorArquivosBalanceados.gerarArquivo();
         }
 
         LinkedList<Aluno> notSortedLL = new LinkedList<>(NOT_SORTED); 

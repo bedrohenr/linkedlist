@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GeradorArquivosBalanceados {
-    private static final int NUM_REGISTROS = 20; // Quantidade de registros a serem gerados
-    private static final String NOME_ARQUIVO = "alunosBalanceados.txt";
+    private static final int NUM_REGISTROS = 45; // Quantidade de registros a serem gerados
+    private static final String NOME_ARQUIVO = "alunos.txt";
     
     private static final String[] PRENOMES = {
         "Ana", "Bruno", "Carlos", "Daniela", "Eduardo", "Fernanda", "Gabriel", "Helena", "Isabela", "João",
