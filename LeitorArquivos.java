@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Random;
 
 public class LeitorArquivos {
     public void readFile(String nomeArquivo){
@@ -27,7 +26,6 @@ public class LeitorArquivos {
 
 
     public static void fromFileToList(String nomeArquivo, LinkedList<Aluno> sortedLL, LinkedList<Aluno> notSortedLL){
-        Random random = new Random();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(nomeArquivo))) {
             int numRegistros = Integer.parseInt(reader.readLine().trim());
@@ -44,8 +42,8 @@ public class LeitorArquivos {
             System.out.println("Iniciando criação dos alunos pelo arquivo.\n...");
             while ((linha = reader.readLine()) != null) {
                 partes = linha.split(";");
-                // int id = Integer.parseInt(partes[0]);
-                id = random.nextInt(numRegistros) +1; // Prevenindo matricula 0
+
+                id = Integer.parseInt(partes[0]);
                 nome = partes[1];
                 nota = Float.parseFloat(partes[2]);
                 
