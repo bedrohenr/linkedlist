@@ -45,41 +45,27 @@ public class LinkedList<T> {
         Node<Comparable<T>> ant = null;
 
         // Somente um item na lista
-        // if(this.first.getNext() == null){
-        //     if(newE.getValue().compare(aux.getValue()) == 1){
-        //         newE.setNext(aux);
-        //         this.first = newE;
-        //         this.last = aux;
-        //     } else {
-        //         this.first.setNext(newE);
-        //         this.last = newE;
-        //     }
-        //     return;
-        // }
+        if(this.first.getNext() == null){
+            if(newE.getValue().compare(aux.getValue()) == 1){
+                newE.setNext(aux);
+                this.first = newE;
+                this.last = aux;
+            } else {
+                this.first.setNext(newE);
+                this.last = newE;
+            }
+            return;
+        }
 
-        if (newE.getValue().compare(this.first.getValue()) >= 0){
+        if (newE.getValue().compare(this.first.getValue()) > 0){
             newE.setNext(this.first);
             this.first = newE;
             return;
         }
 
-        // if (newE.getValue().compare(this.last.getValue()) < 0){
-        //     newE.setNext(this.first);
-        //     this.last.setNext(newE);
-        //     return;
-        // }
-
         while(aux != null){
-            System.out.println("what");
             // >= 0 == Deve ser inserido antes do aux
             if(newE.getValue().compare(aux.getValue()) >= 0){
-
-                // if (aux == this.last){
-                //     this.last = newE;
-                //     aux.setNext(newE);
-                //     return;
-                // }
-
                 ant.setNext(newE);
                 newE.setNext(aux);
                 return;
@@ -88,11 +74,11 @@ public class LinkedList<T> {
             ant = aux;
             aux = aux.getNext();
         }
-        // ant.setNext(newE);
-        // if (ant == this.last) {
-        //     this.last = newE;
-        // }
-        // return;
+        ant.setNext(newE);
+        if (ant == this.last) {
+            this.last = newE;
+        }
+        return;
         
     }
 
