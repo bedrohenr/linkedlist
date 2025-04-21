@@ -34,13 +34,13 @@ public class Principal {
                 start = System.currentTimeMillis();
                 rAluno = sortedList.search(matricula);
                 elapsed = System.currentTimeMillis() - start; 
-                output = "A busca na lista ordenada durou: " + elapsed + " milisegundos";
+                output = "A busca na lista ordenada durou: " + elapsed + " ms";
                 break;
             case 2:
                 start = System.currentTimeMillis();
                 rAluno = list.search(matricula);
                 elapsed = System.currentTimeMillis() - start; 
-                output = "A busca na lista não ordenada durou: " + elapsed + " milisegundos";
+                output = "A busca na lista não ordenada durou: " + elapsed + " ms";
                 break;
         }
 
@@ -66,6 +66,7 @@ public class Principal {
 
         // Gerando e lendo o arquivo com alunos
         GeradorArquivosBalanceados.gerarArquivo();
+
         LeitorArquivos.fromFileToList(filePath, sortedLL, notSortedLL);
 
         // Loop de escolhas
