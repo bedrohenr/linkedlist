@@ -6,9 +6,14 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GeradorArquivosBalanceados {
-    private static final int NUM_REGISTROS = 10000; // Quantidade de registros a serem gerados
-    private static final String NOME_ARQUIVO = "alunos.txt";
+
+    public static int numRegistros; // Quantidade de registros a serem gerados
+    public static String nomeArquivo;
     
+    GeradorArquivosBalanceados(int numRegistros, String nomeArquivo){
+        this.numRegistros = numRegistros; 
+        this.nomeArquivo = nomeArquivo;
+    }
     private static final String[] PRENOMES = {
         "Ana", "Bruno", "Carlos", "Daniela", "Eduardo", "Fernanda", "Gabriel", "Helena", "Isabela", "João",
         "Juliana", "Lucas", "Mariana", "Nathan", "Olivia", "Paulo", "Quésia", "Rafael", "Sofia", "Thiago",
@@ -39,12 +44,12 @@ public class GeradorArquivosBalanceados {
     public static void gerarArquivo() {
         Random random = new Random();
         ArrayList<Integer> ids = new ArrayList<>();
-        gerarIdentificadoresBalanceados(ids, 1, NUM_REGISTROS);
+        gerarIdentificadoresBalanceados(ids, 1, numRegistros);
         
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(NOME_ARQUIVO, StandardCharsets.UTF_8))) {
-            writer.write(NUM_REGISTROS + "\n");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo, StandardCharsets.UTF_8))) {
+            writer.write(numRegistros + "\n");
             
-            for (int i = 0; i < NUM_REGISTROS; i++) {
+            for (int i = 0; i < numRegistros; i++) {
                 int id = ids.get(i);
                 String nome = gerarNomeAleatorio(random);
                 float nota = random.nextFloat() * 10; // Gera uma nota entre 0 e 10
@@ -55,7 +60,7 @@ public class GeradorArquivosBalanceados {
                 }
             }
             
-            System.out.println("Arquivo gerado com sucesso: " + NOME_ARQUIVO);
+            System.out.println("Arquivo gerado com sucesso: " + nomeArquivo);
         } catch (IOException e) {
             System.err.println("Erro ao escrever no arquivo: " + e.getMessage());
         }

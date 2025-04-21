@@ -56,7 +56,8 @@ public class Principal {
 
     public static void main(String[] args) {
         boolean SORTED = true;
-        String filePath = "alunos.txt";
+        String ARQUIVO = "alunos.txt";
+        int NUM_REGISTROS = 10000;
 
         System.out.println("-- Início do programa");
 
@@ -65,9 +66,11 @@ public class Principal {
         LinkedList<Aluno> notSortedLL = new LinkedList<>(!SORTED); 
 
         // Gerando e lendo o arquivo com alunos
+        GeradorArquivosBalanceados.numRegistros = 10000;
+        GeradorArquivosBalanceados.nomeArquivo = ARQUIVO;
         GeradorArquivosBalanceados.gerarArquivo();
 
-        LeitorArquivos.fromFileToList(filePath, sortedLL, notSortedLL);
+        LeitorArquivos.fromFileToList(ARQUIVO, sortedLL, notSortedLL);
 
         // Loop de escolhas
         int escolha;
